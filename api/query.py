@@ -2,7 +2,7 @@ import datetime
 
 from pymongo import MongoClient
 
-from api.app.schema import BlogEntry
+from schema import BlogEntry
 
 class MongoDB:
     def __init__(self, host: str="localhost", port: int=27017, db_name: str="blogs") -> None:
