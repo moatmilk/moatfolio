@@ -1,7 +1,11 @@
 from typing import Annotated
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 
+from app.query import MongoDB
+
+mongo = MongoDB()
 app = FastAPI(
     title="Add/retrieve blog entries from Mohammad's personal website",
     summary="Mohammad's Personal Portfolio",
@@ -32,7 +36,8 @@ def read_root():
 def health_checker():
     """_summary_
     """
-    pass 
+    return JSONResponse(content={"message": "API is running!"}, status_code=200)
+
 
 @app.get("/blogs/{blog_entry_id}", status_code=200)
 def get_entry_by_id(blog_entry_id: int, q: str|None = None):

@@ -39,7 +39,8 @@ class MongoDB:
         Args:
             blog (dict): _description_
         """
-        pass
+        collection = self.get_collection("entries")
+        collection.insert_one(blog)
     
     def get_blogs_between_date_range(self, start: datetime, end: datetime, relation: str):
         """_summary_
@@ -60,7 +61,8 @@ class MongoDB:
         Returns:
             _type_: _description_
         """
-        pass
+        collection = self.get_collection("entries")
+        return collection.find()
 
     @staticmethod
     def verify_schema(blog: dict):
