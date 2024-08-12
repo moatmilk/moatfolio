@@ -1,0 +1,3 @@
+fastapi
+pydantic
+pymongo==3.5.1
